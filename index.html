@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skywings – Luxury Travel &amp; Tour Packages</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap">
+<!-- Styles: style.css | Behaviour + package data: app.js -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ===== PROGRESS BAR + HEADER + MOBILE MENU ===== -->
+<div id="bar"></div>
+<header id="hd"><div class="in">
+<a href="#top" class="logo"><i></i>Skywings</a>
+<nav><div class="dd"><a href="#services" aria-haspopup="true">Services <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5L5 7l3.5-3.5"/></svg></a><div class="ddm"><button data-svc="couple"><b>Couple packages</b><small>Romantic getaways for two</small></button><button data-svc="student"><b>Student tours</b><small>Group trips for colleges</small></button><button data-svc="christian"><b>Christian trips</b><small>Pilgrimages and shrines</small></button><button data-svc="visa"><b>Visa assistance</b><small>Documents and appointments</small></button><button data-svc="ticket"><b>Ticket booking</b><small>Flights, trains and buses</small></button><a class="all" href="#services">View all services →</a></div></div><a href="#destinations">Packages</a><a href="#why">Why us</a><a href="#offers">Offers</a><a href="#faq">FAQ</a><a href="#contact">Contact us</a></nav>
+<div class="tools"><button class="ic" id="theme" aria-label="Toggle theme">◐</button><button class="btn dark" data-book>Book a trip</button><button class="ic burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button></div>
+</div><div class="mn" id="mn"><button class="mns" id="mns" aria-expanded="false">Services <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5L5 7l3.5-3.5"/></svg></button><div class="mnsub" id="mnsub"><button data-svc="couple">Couple packages</button><button data-svc="student">Student tours</button><button data-svc="christian">Christian trips</button><button data-svc="visa">Visa assistance</button><button data-svc="ticket">Ticket booking</button></div><a href="#destinations">Packages</a><a href="#why">Why us</a><a href="#offers">Offers</a><a href="#faq">FAQ</a><a href="#contact">Contact us</a><button id="theme2">Switch light / dark</button></div></header>
+
+<main id="top">
+<!-- ===== HERO (slideshow + headline) ===== -->
+<div class="hero" id="hero">
+<div class="hs" id="hs" aria-hidden="true"></div><div class="hc" id="hc"><span id="hcap"></span><div id="hd2"></div></div>
+<div class="cloud" style="width:300px;height:140px;left:-40px;bottom:90px"></div>
+<div class="cloud" style="width:420px;height:160px;left:30%;bottom:-60px"></div>
+<div class="cloud" style="width:260px;height:110px;right:5%;top:48%"></div>
+<p class="k">Curated luxury travel</p>
+<h1 id="h1">Journeys Crafted For The Extraordinary</h1>
+<p class="lead">Couples, students, pilgrims and families: every trip planned end to end.</p>
+<svg id="plane" viewBox="0 0 800 360" aria-hidden="true"><g transform="rotate(-14 400 180)"><path d="M120 190 Q130 150 300 140 L690 150 Q780 160 700 200 Q620 232 300 226 Q150 224 120 190Z" fill="#fff"/><path d="M300 150 L520 20 L580 22 L470 150Z" fill="#e7eef8"/><path d="M300 215 L520 330 L580 328 L470 215Z" fill="#d3dff0"/><path d="M690 150 L760 90 L790 92 L748 160Z" fill="#fff"/><ellipse cx="360" cy="236" rx="52" ry="26" fill="#cbd7e8"/><circle cx="640" cy="172" r="5" fill="#8aa6c8"/><circle cx="610" cy="172" r="5" fill="#8aa6c8"/><circle cx="580" cy="172" r="5" fill="#8aa6c8"/><path d="M170 196 Q300 214 690 190" stroke="#2f7bff" stroke-width="5" fill="none"/></g></svg>
+<div class="cta"><a class="btn" href="#sf">Plan your journey</a><a class="ic" href="#destinations" aria-label="See tour packages" style="background:var(--ink);color:var(--bg)">↓</a></div>
+<a class="know" href="#destinations" style="display:block"><b>Know more <span>→</span></b><small>Awesome places around the world. Adventure of a lifetime.</small></a>
+</div>
+
+<!-- ===== SEARCH BAR ===== -->
+<div class="wrap">
+<form class="search rv" id="sf">
+<label>Trip style<select id="s_t"><option value="all">Any</option><option value="beach">Beach</option><option value="city">City</option><option value="mountain">Mountain</option></select></label>
+<label>Duration<select id="s_d"><option value="any">Any</option><option value="s">Up to 4 days</option><option value="m">5–6 days</option><option value="l">7+ days</option></select></label>
+<label>Budget<select id="s_b"><option value="any">Any</option><option value="lo">Under ₹50,000</option><option value="mid">₹50,000–₹90,000</option><option value="hi">Above ₹90,000</option></select></label>
+<label>Package for<select id="s_c"><option value="all">Anyone</option><option value="couple">Couples</option><option value="student">Students</option><option value="christian">Christian trips</option></select></label>
+<label>Travelers<select id="s_p"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+<button class="btn" type="submit">Find packages</button></form>
+
+<!-- ===== SCROLLING STRIP ===== -->
+<div class="logos" aria-hidden="true"><div><span>Private transfers</span><span>Handpicked stays</span><span>Expert local guides</span><span>Visa support</span><span>Concierge service</span><span>Flexible changes</span></div><div><span>Private transfers</span><span>Handpicked stays</span><span>Expert local guides</span><span>Visa support</span><span>Concierge service</span><span>Flexible changes</span></div></div>
+
+<!-- ===== SERVICES CAROUSEL ===== -->
+<section id="services"><div class="head rv"><div><span class="pill">What we do</span><h2>Our <em>services</em></h2><p class="sub">Holiday packages for every kind of traveler, plus the visas and tickets to go with them.</p><div class="chips" id="svch"></div></div></div>
+<div class="cf3 rv" id="cf3"><div class="cv" id="cv"></div></div>
+<div class="cvc"><button id="cvp" aria-label="Previous service">←</button><a href="#destinations">View all packages</a><button id="cvn" aria-label="Next service">→</button></div></section>
+
+<!-- ===== PACKAGES (cards fill from the PACKAGE DATA in app.js) ===== -->
+<section id="destinations">
+<div class="head rv"><div><span class="pill">Our journeys</span><h2>Tour <em>packages</em></h2><p class="sub">Stay, meals, transfers and guided experiences in one price. Tap a package to see the plan.</p>
+<div class="chips" id="chips"></div></div>
+<div class="arrows"><button id="pv" aria-label="Previous">←</button><button id="nx" aria-label="Next">→</button></div></div>
+<div id="rail" class="rv"></div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="journey" id="how">
+<span class="pill rv">How it works</span><br><h2 class="rv">Your holiday, <em>planned</em> for you</h2><p class="sub rv" style="margin:8px auto 0">Three steps from idea to packed bags.</p>
+<div class="steps rv" id="steps">
+<div class="step"><span>⌖</span><h3>Find your package</h3><p>Filter by trip style, length and budget.</p></div>
+<div class="step on"><span>✈</span><h3>Book your tour</h3><p>Pick dates and travelers. We confirm hotels and guides for you.</p></div>
+<div class="step"><span>☺</span><h3>Pay &amp; start your journey</h3><p>Pay securely and get a full day-wise itinerary.</p></div>
+</div></section>
+
+<!-- ===== OFFERS + 20% OFF BOX ===== -->
+<section id="offers"><div class="promo">
+<div class="ph rv"><svg id="pimg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb9f2"/><stop offset=".45" stop-color="#d8eefc"/></linearGradient><linearGradient id="ps" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46d3c2"/><stop offset=".6" stop-color="#17a9b4"/><stop offset="1" stop-color="#0b7f9c"/></linearGradient></defs><rect width="300" height="400" fill="url(#pg)"/><ellipse cx="70" cy="62" rx="48" ry="15" fill="#fff" opacity=".9"/><ellipse cx="238" cy="104" rx="42" ry="13" fill="#fff" opacity=".85"/><ellipse cx="150" cy="40" rx="30" ry="9" fill="#fff" opacity=".7"/><rect y="176" width="300" height="224" fill="url(#ps)"/><path d="M196 188 C198 150 214 128 236 128 C262 130 276 160 282 188Z" fill="#4b7a5c"/><path d="M104 190 C108 140 130 104 160 104 C190 108 204 150 208 190Z" fill="#3a6a4c"/><path d="M0 214 C4 140 30 96 66 98 C102 102 124 158 130 214Z" fill="#2f5d43"/><path d="M60 100 C80 104 98 130 106 160 C96 128 80 112 60 108Z" fill="#6fa879" opacity=".75"/><path d="M158 106 C176 112 188 138 192 166 C184 140 172 122 158 114Z" fill="#6fa879" opacity=".7"/><path d="M0 214 H130 V222 H0Z" fill="#1d6e82" opacity=".35"/><g><path d="M52 262 q22 9 46 0 l-6 9 h-34z" fill="#d94e3a"/><path d="M60 262 v-9 h30 v9" fill="none" stroke="#f3d27a" stroke-width="2"/><path d="M168 292 q22 9 46 0 l-6 9 h-34z" fill="#e9a23b"/><path d="M176 292 v-9 h30 v9" fill="none" stroke="#fff" stroke-width="2"/><path d="M200 246 q14 6 30 0 l-4 6 h-22z" fill="#d94e3a"/></g><g fill="none" stroke="#fff" stroke-width="1.6" opacity=".55"><path d="M40 276 q30 6 62 0"/><path d="M156 306 q30 6 62 0"/></g><path d="M0 364 Q80 336 160 354 T300 346 V400 H0Z" fill="#f5deb3"/><path d="M0 386 Q90 366 170 378 T300 372 V400 H0Z" fill="#ecd0a0"/></svg><div class="pss" id="pss"></div><div class="pdt" id="pdt"></div><div class="off">20% OFF<small>Till 30 November</small></div></div>
+<div><h2 class="big rv" id="big"><span class="l"><span>Unleash</span></span><span class="l"><span>wanderlust with Skywings</span></span></h2>
+<p class="sub rv">Save <b id="offp">20%</b> on any tour package booked this season. Offer ends in:</p>
+<div class="cd rv" id="cd"></div>
+<div class="band rv"><button class="btn" data-book style="padding:14px 34px">Book a tour now</button></div></div>
+</div><div class="head rv" style="margin-top:56px"><div><span class="pill">Featured offers</span><h2>Travel <em>offers</em></h2><p class="sub">Two ways to get moving this season.</p></div></div>
+<div class="offs rv" id="offs"></div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section id="why"><div class="head rv"><div><span class="pill">Why Skywings</span><h2>Why travel <em>with us</em></h2><p class="sub">A small team that plans every trip like it was our own.</p></div></div><div class="why"><div class="wy rv"><i><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></i><h3>Plans built around you</h3><p>Tell us your budget and dates. We shape the trip, not the other way round.</p></div><div class="wy rv"><i><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg></i><h3>Clear pricing</h3><p>The price you see covers what is listed. No surprise add-ons at checkout.</p></div><div class="wy rv"><i><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><h3>Local guides</h3><p>People who know the place, so you skip the tourist traps.</p></div><div class="wy rv"><i><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1-2 2-5 2"/></svg></i><h3>Support before and during</h3><p>Message us before you book and any time on the trip.</p></div><div class="wy rv"><i><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/></svg></i><h3>Hand-picked stays</h3><p>Every hotel and lodge is checked before it joins a package.</p></div><div class="wy rv"><i><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-4L4 9"/><path d="M4 4v5h5"/><path d="M4 13a8 8 0 0 0 14 4l2-2"/><path d="M20 20v-5h-5"/></svg></i><h3>Easy changes</h3><p>Plans shift. We help you rebook dates or swap activities.</p></div></div></section>
+
+<!-- ===== STATS ===== -->
+<section><div class="stats">
+<div class="stat rv"><b data-n="120">0</b><span>Destinations covered</span></div>
+<div class="stat rv"><b data-n="48000">0</b><span>Happy travelers</span></div>
+<div class="stat rv"><b data-n="85">0</b><span>Hotel &amp; local partners</span></div>
+<div class="stat rv"><b data-n="24">0</b><span>Hour support, every day</span></div></div></section>
+
+<!-- ===== REVIEWS ===== -->
+<section id="reviews"><div class="head rv"><div><span class="pill">Testimonials</span><h2>Travelers on <em>Skywings</em></h2></div></div>
+<div class="tg">
+<div class="t rv"><div class="st">★★★★★</div><p>Booked Maldives for our anniversary in minutes. The fare matched what we paid at the end.</p><div class="who"><span class="av">A</span>Ananya R.</div></div>
+<div class="t rv"><div class="st">★★★★★</div><p>Changed my Bali dates the night before flying and support sorted it in ten minutes.</p><div class="who"><span class="av">K</span>Karthik S.</div></div>
+<div class="t rv"><div class="st">★★★★☆</div><p>Clear itinerary, no hidden fees. Santorini was worth every rupee.</p><div class="who"><span class="av">M</span>Meera P.</div></div></div></section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq"><div class="head rv"><div><span class="pill">FAQ</span><h2>Frequently asked <em>questions</em></h2><p class="sub">Still unsure? Ask us in the form below.</p></div></div><div class="fq rv"><details><summary>What does a tour package include?</summary><p>Each package lists its stay, meals, transfers and guided activities. Flights are booked separately unless the package says otherwise.</p></details><details><summary>How do I book a package?</summary><p>Open a package, tap Book this package and send your details. We confirm hotels and dates with you by email before you pay.</p></details><details><summary>Can I change a package to suit me?</summary><p>Yes. Tell us your dates, budget and must-see places in the contact form and we will adjust the plan.</p></details><details><summary>When do I pay, and what if plans change?</summary><p>You pay only after we confirm your trip. Change and cancellation terms are shared with the quote, before you commit.</p></details><details><summary>Do you help with visas and documents?</summary><p>Yes. Our visa assistance service checks your documents, fills the forms and books your appointment. The embassy always makes the final decision.</p></details><details><summary>Do you offer group or family pricing?</summary><p>Yes. Send us the number of travelers and we will quote a group or family rate.</p></details><details><summary>Do you organise Christian pilgrimages?</summary><p>Yes. We run trips to the Holy Land, Rome and local shrines such as Velankanni, with a pilgrim guide. Church and family groups get special group rates.</p></details><details><summary>Do you run student and college tours?</summary><p>Yes. Student trips come with shared stays, a trip coordinator and student pricing. Ask us about group rates for colleges and schools.</p></details><details><summary>Can I book only tickets, without a package?</summary><p>Yes. Request flight, train or bus tickets from the Ticket booking service and we will send the best options and fares.</p></details></div></section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact"><div class="head rv"><div><span class="pill">Get in touch</span><h2>Contact <em>us</em></h2><p class="sub">Tell us where you want to go. We reply with a plan and a price.</p></div></div>
+<div class="ct"><div class="ci rv"><b>Call us</b><a href="tel:+916382569647">+91 63825 69647</a><b>WhatsApp</b><a href="https://wa.me/916382569647" target="_blank" rel="noopener">Chat with us</a><b>Open</b><span>Every day</span></div>
+<form class="cf rv" id="cf" novalidate><input id="c_n" placeholder="Full name" autocomplete="name"><input id="c_p" type="tel" placeholder="Phone number" autocomplete="tel"><select id="c_k" aria-label="Package"></select><textarea id="c_m" placeholder="Dates, travelers, anything we should know"></textarea><div class="err" id="c_e"></div><button class="btn" type="submit" style="justify-content:center;padding:14px">Send enquiry</button></form></div></section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section><div class="news rv"><div><h2>Get tour <em>deals</em> first</h2><p class="sub" style="color:var(--mute)">One email a week. Unsubscribe anytime.</p></div>
+<form id="nf"><input type="email" id="ne" placeholder="you@email.com" aria-label="Email" required><button class="btn" type="submit">Subscribe</button></form></div></section>
+</div>
+</main>
+<!-- ===== FOOTER ===== -->
+<footer><div class="wrap"><span>© 2026 Skywings Travel. All rights reserved.</span><span>Contact: <a href="tel:+916382569647">+91 6382569647</a></span></div></footer>
+
+<!-- ===== POPUP + TOAST (filled by app.js) ===== -->
+<div class="m" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="box" id="mb"></div></div>
+<div id="toast"></div>
+
+<script src="app.js"></script>
+<!-- ===== FIREBASE (only runs when firebase-config.js is filled in) ===== -->
+<script type="module">
+import {firebaseConfig} from './firebase-config.js';
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import {getFirestore,collection,addDoc,getDocs,getDoc,doc,query,orderBy} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+if(firebaseConfig.projectId&&!firebaseConfig.projectId.startsWith('YOUR')){
+ const F=getFirestore(initializeApp(firebaseConfig));
+ window.saveEnquiry=d=>addDoc(collection(F,'enquiries'),{name:String(d.name).slice(0,100),phone:String(d.phone).slice(0,30),pkg:String(d.pkg||'').slice(0,100),svc:String(d.svc||'Package').slice(0,20),pax:+d.pax||1,date:String(d.date||''),amount:+d.amount||0,notes:String(d.notes||'').slice(0,900),status:'New',src:'Website form',created:Date.now()});
+ try{const l=(await getDocs(query(collection(F,'packages'),orderBy('order')))).docs.map(d=>d.data()).filter(p=>p.active!==false);window.applyPackages(l)}catch(e){console.warn('packages',e)}
+ try{const st=await getDoc(doc(F,'settings','site'));if(st.exists())window.applySettings(st.data())}catch(e){console.warn('settings',e)}
+}
+</script>
+</body>
+</html>

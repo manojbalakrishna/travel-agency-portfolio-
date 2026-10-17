@@ -1,0 +1,2 @@
+Hero slideshow. Save JPG files here: 1.jpg to 6.jpg (1920 x 1100 px, under 400 KB each).
+They play in order 1, 2, 3... Keep the left side of each photo calm because the headline sits on it.

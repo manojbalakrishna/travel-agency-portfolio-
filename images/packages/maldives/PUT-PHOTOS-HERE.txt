@@ -1,0 +1,10 @@
+Maldives photos. Save JPG files in THIS folder with these exact names (1600 x 1000 px, under 300 KB each):
+
+1.jpg  -> card cover + first photo in the popup
+2.jpg  -> popup photo 2
+3.jpg  -> popup photo 3
+4.jpg  -> popup photo 4
+5.jpg  -> popup photo 5
+6.jpg  -> popup photo 6
+
+Missing files are fine: the site shows the drawn picture instead.

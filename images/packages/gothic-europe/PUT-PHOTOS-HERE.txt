@@ -1,0 +1,6 @@
+Gothic Europe photos. Save JPG files in THIS folder with these exact names (1000 px wide or more, under 300 KB each):
+
+1.jpg  -> card cover + first photo in the popup
+2.jpg to 6.jpg -> popup photos 2 to 6
+
+Missing files are fine: the site shows the drawn picture instead.
