@@ -53,17 +53,6 @@
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media(prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0b1019;
-    --card:#141b29;
-    --ink:#eef2fa;
-    --mute:#93a0b8;
-    --sky1:#27405c;
-    --sky2:#1a2d44;
-    --line:#233047;
-  }
-}
 :root[data-theme="dark"]{
   --bg:#0b1019;
   --card:#141b29;
@@ -1374,17 +1363,6 @@ footer .wrap{
   --sans:"Inter",system-ui,sans-serif;
   --serif:"Inter",system-ui,sans-serif;
   --accent:"Playfair Display",Georgia,serif;
-}
-@media(prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#0a0d14;
-    --card:#121722;
-    --ink:#f4ede0;
-    --mute:#a49b8a;
-    --line:#262b36;
-    --sky1:#1b2335;
-    --sky2:#0f1522;
-  }
 }
 :root[data-theme="dark"]{
   --bg:#0a0d14;
@@ -2795,3 +2773,292 @@ nav>a,.dd>a{line-height:1;}
   .offs{grid-template-columns:1fr;}
   .of:nth-child(3){aspect-ratio:4/5;}
 }
+
+
+/* ---- 23 WHATSAPP BUTTON + SOCIAL LINKS (added v43) ---- */
+.wafab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:90;display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:13px 18px;border-radius:999px;font-weight:600;font-size:14px;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .2s}
+.wafab:hover{transform:translateY(-3px)}
+@media(max-width:600px){.wafab span{display:none}.wafab{padding:14px}}
+footer .soc{display:flex;gap:16px}
+
+/* ---- 24 EXTRA PAGES: tours + services (added v43) ---- */
+body[data-sub] .pghero{position:relative;color:#fff;background-color:#0b1220;background-size:cover;background-position:center;padding:clamp(120px,16vw,170px) 0 clamp(40px,6vw,72px);min-height:min(62vh,520px);display:flex;align-items:flex-end}
+.pghero .wrap{width:100%}
+.pghero h1{font-size:clamp(34px,5.4vw,68px);line-height:1.04;font-weight:500;letter-spacing:-.035em;margin:14px 0 10px;max-width:14em}
+.pghero .pill{background:rgba(10,15,28,.5);color:var(--gold2);border:1px solid rgba(220,197,146,.4)}
+.pghero .lead2{max-width:46ch;font-size:clamp(15px,1.6vw,18px);color:rgba(255,255,255,.85)}
+.pghero .crumbs{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7)}.pghero .crumbs a{color:var(--gold2)}
+.cta2{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn.wa{background:#25d366;color:#fff;border-color:#25d366}.btn.wa:hover{background:#1ebe5b;color:#fff}
+.pgsec{padding:clamp(32px,4vw,56px) 0}
+.pgsec>.head,.pgsec>.grid3,.pgsec>.days,.pgsec>.two,.pgsec>.chips,.pgsec>.fq,.pgsec>.enq,.pgsec>.note,.pgsec>.gal{max-width:none;margin-left:0;margin-right:0;padding-left:clamp(16px,4vw,80px);padding-right:clamp(16px,4vw,80px)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.pc h3{font-size:19px;letter-spacing:-.01em}.pc p{color:var(--mute);font-size:15px}.pc a:not(.btn){color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.pc.pk .from{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}.pc.pk .where{font-size:13px}.pc.pk .btn{margin-top:auto;align-self:flex-start}
+.days{display:grid;gap:12px}
+.day{display:grid;grid-template-columns:110px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px 22px}
+.day>b{color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-size:12px;padding-top:4px}.day h3{font-size:18px}.day p{color:var(--mute);font-size:15px;margin-top:2px}
+.note{margin-top:14px;color:var(--mute);font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tick{list-style:none;padding:0;display:grid;gap:8px;margin-top:8px}.tick li{padding-left:26px;position:relative;font-size:15px}
+.tick li:before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700}.tick.no li:before{content:"\2013";color:var(--mute)}
+.enq{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(20px,4vw,48px);align-items:start}
+.enq .sub{max-width:none}.enq h2{margin-top:12px}.enq .tick{margin:16px 0}
+.pgsec>.fq{display:grid;gap:10px}
+@media(max-width:860px){.two,.enq{grid-template-columns:1fr}.day{grid-template-columns:1fr;gap:4px}}
+@media(max-width:860px){body[data-sub] nav{display:none}body[data-sub] .burger{display:grid}}
+@media(min-width:861px) and (max-width:1180px){header nav{gap:18px;font-size:11px;letter-spacing:.1em}header .logo{font-size:16px;letter-spacing:.14em}header .tools .btn{padding:10px 16px}}
+.ddm a:not(.all){display:block;padding:12px 14px;border-radius:12px;transition:background .2s}
+.ddm a:not(.all):hover{background:var(--bg)}.ddm a b{display:block;font-size:14px;letter-spacing:0;text-transform:none}.ddm a small{display:block;color:var(--mute);font-size:12px;letter-spacing:0;text-transform:none;font-weight:400}
+footer .wrap{align-items:center}
+footer .foot-links{flex-basis:100%;line-height:2}footer .foot-links a{text-decoration:underline;text-underline-offset:3px}
+
+/* ---- 25 EXTRA PAGES: photos + luxury look (added v45) ---- */
+.pc.ph{padding:0;overflow:hidden;gap:0}
+.pc.ph .pimg{height:clamp(190px,18vw,260px);background-size:cover;background-position:center;transition:transform .8s}
+.pc.ph:hover .pimg{transform:scale(1.04)}
+.pc.ph{position:relative}
+.pc.ph .pcb{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1;background:var(--card);position:relative}
+.pimg.none{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy),#1b2438 60%,var(--gold));color:var(--gold2);font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.gal figure{position:relative;margin:0;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--navy)}
+.gal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figure:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,12,22,.78))}
+.gal figcaption{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.gal figcaption:before{content:"";display:block;width:34px;height:1px;background:var(--gold2);margin-bottom:10px}
+.lux{position:relative;margin:clamp(24px,4vw,56px) clamp(16px,4vw,80px);border-radius:24px;overflow:hidden;color:#fff;text-align:center;padding:clamp(48px,8vw,110px) 20px;background:#0b1220 center/cover;border:1px solid rgba(220,197,146,.35)}
+.lux h2{color:#fff;max-width:16em;margin:16px auto 10px}.lux p{color:rgba(255,255,255,.8);max-width:44ch;margin:0 auto}
+.lux .pill{background:rgba(10,15,28,.5);color:var(--gold2);border:1px solid rgba(220,197,146,.4)}
+.lux .cta2{justify-content:center}
+
+/* ---- 26 HEADER FIT (added v47): menu never wraps; home switches to the ☰ button a little earlier ---- */
+header .logo,header nav a,header .tools .btn{white-space:nowrap}
+@media(max-width:1020px){body:not([data-sub]) nav{display:none}body:not([data-sub]) .burger{display:grid}}
+
+/* ---- 27 LIGHT BY DEFAULT (added v48): dark only when the visitor presses the dark/light button ---- */
+:root{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+
+/* ---- 28 ICONS ON CARDS AND STEPS (added v50) ---- */
+.pc .ico,.day .ico{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-style:normal;transition:background .3s,color .3s}
+.pc .ico{margin-bottom:10px}
+.pc:hover .ico,.day:hover .ico{background:var(--gold);color:var(--navy)}
+.day>b{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.day .ico{width:38px;height:38px}
+.day .ico svg{width:18px;height:18px}
+
+/* ---- 29 LIFE OF JESUS SECTION on holy-land.html (added v51) ---- */
+.life{margin:0 clamp(16px,4vw,80px) 18px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#f1e6cf}
+.life-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.life img{display:block;width:100%;height:auto}
+.life figcaption{padding:12px 18px;font-size:13px;color:var(--mute);background:var(--card);border-top:1px solid var(--line)}
+.life .swipe{display:none;color:var(--gold);font-weight:600}
+.life-grid{margin-top:6px}
+.life-note{margin-top:16px}
+.pgsec>.life-note{max-width:none;margin-left:0;margin-right:0;padding-left:clamp(16px,4vw,80px);padding-right:clamp(16px,4vw,80px)}
+.ico-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.ico-row .ico{margin-bottom:0}
+.pc .stage{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.16em;text-transform:uppercase}
+@media(max-width:860px){.life img{min-width:900px}.life .swipe{display:inline}}
+
+/* ---- 30 MOBILE MENU FIT (added v52): scrolls when long, grouped, always reaches the last item ---- */
+.mn.o{max-height:calc(100vh - 90px);max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.mn .mnh{display:block;padding:14px 14px 4px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.mn .mnchips{display:flex;flex-wrap:wrap;gap:8px;padding:2px 14px 10px}
+.mn .mnchips a{padding:7px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--ink)}
+.mn .mnb{margin:10px 6px 4px;background:var(--navy);color:#f5ecd9;text-align:center;border-radius:999px;border:1px solid var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:13px}
+body[data-sub] .mn a,.mn button#theme2{padding-top:11px;padding-bottom:11px}
+header{z-index:95}   /* the open menu sits above the floating WhatsApp button */
+
+/* ---- 31 MOBILE MENU DROP-DOWNS: Tours and Services (added v53) ---- */
+.mn .mnsub a{display:block;padding:11px 14px 11px 30px;font-weight:400;color:var(--mute);border-radius:8px}
+.mn .mnsub a:hover{background:var(--bg);color:var(--ink)}
+.mn .mnsub a.deep{padding-left:48px;font-size:14px}
+.mn .mnsub a.deep:before{content:"\2013";margin-right:8px;color:var(--gold)}
+
+/* ---- 32 MOTION: scroll reveals, hero entrance, card/image effects (added v53) ---- */
+/* hidden only when JS is running, so the page never stays blank without JS */
+.hp-anim .rv{opacity:0;transform:translate3d(0,30px,0);transition:opacity .7s ease-out,transform .8s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0ms)}
+.hp-anim .rv.rv-l{transform:translate3d(-40px,0,0)}
+.hp-anim .rv.rv-r{transform:translate3d(40px,0,0)}
+.hp-anim .rv.rv-on{opacity:1;transform:none}
+/* images: soft zoom-out as they appear */
+.hp-anim .gal figure img,.hp-anim .pc.ph .pimg{transform:scale(1.18)}
+.hp-anim .gal figure.rv-on img,.hp-anim .pc.ph.rv-on .pimg{transform:scale(1);transition:transform 1.6s cubic-bezier(.22,1,.36,1)}
+.hp-anim .gal figure.rv-on:hover img{transform:scale(1.07);transition-duration:1s}
+.hp-anim .pc.ph.rv-on:hover .pimg{transform:scale(1.06);transition-duration:.9s}
+.gal figcaption{transition:transform .5s cubic-bezier(.22,1,.36,1),letter-spacing .5s}
+.gal figure:hover figcaption{transform:translateY(-6px);letter-spacing:.22em}
+/* cards: lift, gold edge, icon pop */
+.pc,.day,.chip{transition:transform .45s cubic-bezier(.22,1,.36,1),box-shadow .45s,border-color .45s}
+.hp-anim .pc.rv-on:hover,.hp-anim .day.rv-on:hover{transform:translateY(-8px);box-shadow:0 22px 44px -22px rgba(11,18,32,.35);border-color:var(--gold);transition-delay:0ms}
+.hp-anim .chip.rv-on:hover{transform:translateY(-3px);border-color:var(--gold)}
+.pc .ico,.day .ico{transition:transform .5s cubic-bezier(.34,1.56,.64,1),background .3s}
+.hp-anim .pc .ico{transform:scale(.4) rotate(-25deg)}
+.hp-anim .pc.rv-on .ico{transform:none;transition-delay:calc(var(--d,0ms) + 220ms)}
+.pc:hover .ico,.day:hover .ico{transform:scale(1.12) rotate(-6deg)}
+/* hero: slow zoom + staggered text on load */
+.pghero{background-size:cover;background-position:center}
+.hp-anim .pghero .wrap>*{animation:hpUp .9s cubic-bezier(.22,1,.36,1) both}
+.hp-anim .pghero .wrap>*:nth-child(1){animation-delay:.05s}.hp-anim .pghero .wrap>*:nth-child(2){animation-delay:.18s}
+.hp-anim .pghero .wrap>*:nth-child(3){animation-delay:.3s}.hp-anim .pghero .wrap>*:nth-child(4){animation-delay:.44s}
+.hp-anim .pghero .wrap>*:nth-child(5){animation-delay:.58s}
+@keyframes hpUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+/* Jesus timeline: reveal + gentle drift, scroll hint pulse */
+.hp-anim .life.rv-on img{animation:hpDrift 1.8s cubic-bezier(.22,1,.36,1) both}
+@keyframes hpDrift{from{transform:scale(1.08)}to{transform:scale(1)}}
+.life .swipe{animation:hpPulse 1.8s ease-in-out infinite}
+@keyframes hpPulse{50%{opacity:.45;transform:translateX(5px)}}
+.life-scroll{scrollbar-width:none}.life-scroll::-webkit-scrollbar{display:none}
+.life-dots{display:none;justify-content:center;gap:6px;padding:10px 0 0;background:var(--card)}
+.life-dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:width .3s,background .3s}
+.life-dots i.on{width:20px;border-radius:6px;background:var(--gold)}
+@media(max-width:860px){.life-dots{display:flex}}
+@media(prefers-reduced-motion:reduce){
+ .hp-anim .rv,.hp-anim .pghero .wrap>*,.pghero,.hp-anim .gal figure img,.hp-anim .pc.ph .pimg,.hp-anim .pc .ico{opacity:1!important;transform:none!important;filter:none!important;animation:none!important;transition:none!important;background-size:cover}
+}
+
+/* ---- 33 MOTION PART 2: everything moves (added v54) ---- */
+body[data-sub]{animation:hpPage .7s ease both}
+@keyframes hpPage{from{opacity:0}to{opacity:1}}
+/* hero: drifting gold light orbs (added by site.js) */
+.pghero{position:relative;overflow:hidden}
+.pghero .wrap{position:relative;z-index:1}
+.pghero .orb{position:absolute;border-radius:50%;pointer-events:none;opacity:.35;background:radial-gradient(circle,rgba(220,197,146,.75),rgba(220,197,146,0) 70%)}
+.pghero .orb.a{width:260px;height:260px;right:-60px;top:12%}
+.pghero .orb.b{width:180px;height:180px;left:-40px;bottom:-30px}
+/* small things */
+.hp-anim .tick li.rv,.hp-anim .cf>.rv,.hp-anim .pgsec .sub.rv,.hp-anim .pgsec .pill.rv,.hp-anim footer .rv{transform:translate3d(0,22px,0);filter:none}
+.hp-anim .tick li.rv.rv-on,.hp-anim .cf>.rv.rv-on,.hp-anim .pgsec .sub.rv.rv-on,.hp-anim .pgsec .pill.rv.rv-on,.hp-anim footer .rv.rv-on{transform:none}
+.tick li:before{transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.hp-anim .tick li.rv:not(.rv-on):before{transform:scale(0)}
+.cf input,.cf select,.cf textarea{transition:border-color .3s,box-shadow .3s,transform .3s}
+.cf input:focus,.cf select:focus,.cf textarea:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,146,74,.18);transform:translateY(-2px);outline:none}
+/* icons float gently (independent `translate` so reveal/hover transforms still work) */
+/* WhatsApp button heartbeat ring */
+/* cards: glare that follows the cursor, touch press feedback */
+.pc{position:relative}
+.pc .glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.34),transparent 55%);z-index:2}
+.pc.tilting .glare{opacity:1}
+.pc.tilting{transition:transform .12s ease-out,box-shadow .45s,border-color .45s!important}
+.pc:active,.day:active,.chip:active,.btn:active{transform:scale(.97)!important;transition-duration:.12s!important}
+@media(prefers-reduced-motion:reduce){.pghero .orb,.wafab,body[data-sub],.hp-anim .pc.rv-on .ico{animation:none!important}.pc .glare{display:none}}
+
+/* ---- 34 NO UNDERLINES + THEME-COLOURED WHATSAPP BUTTON (added v55) ---- */
+body[data-sub] main a,body[data-sub] .pc a:not(.btn),body[data-sub] .fq a,body[data-sub] .note a{text-decoration:none}
+body[data-sub] main a:not(.btn):not(.chip):hover{color:var(--ink)}
+.wafab{background:var(--navy);color:var(--gold2);border:1px solid var(--gold)}
+.wafab:hover{background:var(--gold);color:var(--navy)}
+
+/* ---- 35 PERFORMANCE PASS (v55): only cheap transform/opacity effects, no blur, no looping repaints ---- */
+.wafab{position:fixed}
+.wafab:after{content:"";position:absolute;inset:-1px;border-radius:inherit;border:2px solid var(--gold);opacity:0;pointer-events:none;animation:hpPing 3s ease-out infinite}
+@keyframes hpPing{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(1.35);opacity:0}}
+@media(prefers-reduced-motion:reduce){.wafab:after{animation:none}}
+
+/* ---- 36 NO TILT, NO HOVER MOTION ON ENQUIRE CARDS, SHARPER IMAGES (v57) ---- */
+.pc .glare{display:none}
+body[data-sub] .pc.pk,body[data-sub] .enq,body[data-sub] .cf{transform:none!important}
+.hp-anim .pc.pk.rv-on:hover,.hp-anim .enq.rv-on:hover,.hp-anim .pc.pk:hover{transform:none!important;box-shadow:none;border-color:var(--line)}
+.pc.pk:hover .ico,.pc.pk:hover .pimg{transform:none}
+.hp-anim .pc.ph.pk.rv-on:hover .pimg{transform:scale(1)}
+/* a lone card (e.g. the Popular package) no longer stretches full width, so its photo is not blown up */
+.grid3>.pc.ph:only-child{max-width:460px}
+.pc.ph .pimg{background-position:center 35%}
+/* cards without a photo yet get a quiet navy panel instead of blank white */
+
+/* ---- 37 SOLO CARD + PHOTO SLIDESHOW (fills the empty right side) (v58) ---- */
+.grid3.solo{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:24px;align-items:stretch}
+.solo-side{position:relative;border-radius:20px;overflow:hidden;min-height:420px;background:var(--navy)}
+.solo-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.07);transition:opacity 1.2s ease,transform 6s linear}
+.solo-side img.on{opacity:1;transform:scale(1)}
+.solo-side:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,12,22,.75));pointer-events:none}
+.solo-side figcaption{position:absolute;left:22px;bottom:18px;z-index:1;color:#fff;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.solo-side .sd{position:absolute;right:20px;bottom:20px;z-index:1;display:flex;gap:6px}
+.solo-side .sd i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);transition:width .4s,background .4s}
+.solo-side .sd i.on{width:20px;border-radius:6px;background:var(--gold2)}
+@media(max-width:900px){.grid3.solo{grid-template-columns:1fr}.solo-side{display:none}}
+@media(prefers-reduced-motion:reduce){.solo-side img{transition:none;transform:none}}
+
+/* ---- 38 FOOTER (all pages): brand + social, quick links, tours, services (v59) ---- */
+footer.ft{background:var(--navy);color:#b9ae98;padding:56px 0 84px;margin-top:40px;font-size:14px;border-top:1px solid rgba(220,197,146,.25)}
+footer.ft .wrap{display:block}
+.ftgrid{display:grid;grid-template-columns:1.5fr 1fr 1.1fr 1fr;gap:36px 40px}
+.ftcol{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.ftcol h4{margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2)}
+.ftcol h4.ftsp{margin-top:18px}
+.ftcol a{color:#cfc5ae;text-decoration:none;transition:color .25s,transform .25s}
+.ftcol a:hover{color:#fff;transform:translateX(4px)}
+.ftbrand .logo{color:#f5ecd9;font-size:19px}
+.ftbrand p{margin:6px 0 4px;max-width:30ch;line-height:1.6;color:#a79d88}
+footer.ft .soc{display:flex;gap:10px;margin-top:6px}
+footer.ft .soc a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(220,197,146,.45);display:inline-flex;align-items:center;justify-content:center;color:var(--gold2);transition:background .25s,color .25s,transform .25s,border-color .25s}
+footer.ft .soc a:hover{background:var(--gold);border-color:var(--gold);color:var(--navy);transform:translateY(-3px)}
+.ftbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid rgba(220,197,146,.18);font-size:13px;color:#948a76}
+.ftbar .totop{color:var(--gold2);text-decoration:none}.ftbar .totop:hover{color:#fff}
+@media(max-width:900px){.ftgrid{grid-template-columns:1fr 1fr}.ftbrand{grid-column:1/-1}}
+@media(max-width:520px){footer.ft{padding-top:44px}.ftgrid{gap:28px 20px}.ftbar{flex-direction:column;align-items:flex-start}}
+
+/* ---- 39 FAQ: open item no longer stretches its neighbour; one tidy column on inner pages (v60) ---- */
+.fq{align-items:start}
+.pgsec>.fq{grid-template-columns:1fr!important;max-width:880px}
+.fq details{transition:box-shadow .3s,border-color .3s}
+.fq details[open]{border-color:var(--gold)}
+
+/* ---- 40 FOOTER DROP-DOWNS on phones/tablets (v61) ---- */
+.ftgrid>*{min-width:0}
+.ftcol a{overflow-wrap:anywhere}
+.fth{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:6px;cursor:default}
+.fth svg{width:10px;height:10px;display:none;transition:transform .3s}
+.ftdd{align-items:stretch}.ftl{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.ftcontact h4{margin-top:0}
+@media(max-width:900px){
+ .ftgrid{grid-template-columns:1fr;gap:0}
+ .ftbrand{padding-bottom:20px}
+ .ftdd{border-top:1px solid rgba(220,197,146,.2)}
+ .fth{cursor:pointer;padding:16px 2px;margin:0;font-size:12px}
+ .fth svg{display:block}
+ .fth[aria-expanded="true"] svg{transform:rotate(180deg)}
+ .ftl{display:none;padding:0 2px 14px}
+ .ftdd.o .ftl{display:flex;animation:ftOpen .3s ease both}
+ .ftcontact{border-top:1px solid rgba(220,197,146,.2);padding-top:16px}
+ .ftbar{margin-top:24px}
+}
+@keyframes ftOpen{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.ftsv{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ftsv .ftcontact{margin:0}
+@media(max-width:900px){.ftsv{display:contents}}
+
+/* ---- 41 VERY NARROW PHONES (<=360px): header fits (v61) ---- */
+@media(max-width:360px){
+ header .logo{font-size:15px;letter-spacing:.1em;gap:6px}
+ header .tools{gap:6px}
+ header .tools .btn{padding:10px 12px;font-size:10px;letter-spacing:.08em}
+ header .tools .ic{width:38px;height:38px}
+}
+@media(max-width:340px){header .tools .btn{display:none}}
+footer.ft .soc a.soon{cursor:default;opacity:.85}
+
+/* ---- 42 PILL + BREADCRUMB SPACING (v63) ---- */
+.pghero .crumbs{display:block;margin:0 0 14px;line-height:1.4}
+.pghero .pill{margin:0 0 6px;padding:7px 18px}
+.pghero .wrap>.pill{display:inline-block}
+/* light section pills (e.g. "CHOOSE YOUR JOURNEY"): a little larger and roomier */
+.pill:not(.pghero .pill):not(.lux .pill){font-size:13.5px;padding:9px 22px;letter-spacing:.17em;margin-bottom:20px}
+
+/* ---- 43 DROP-DOWN MENUS (Services + Tours, desktop): same smooth open, items glide in one by one (v64) ---- */
+.ddm{transform:translateY(12px) scale(.98);transform-origin:top left;transition:opacity .28s ease,transform .35s cubic-bezier(.22,1,.36,1),visibility .28s}
+.dd:hover .ddm,.dd:focus-within .ddm{transform:none}
+header .dd .ddm>*{opacity:0;transform:translateY(8px);transition:opacity .3s ease,transform .35s cubic-bezier(.22,1,.36,1),background .2s,padding-left .25s}
+header .dd:hover .ddm>*,header .dd:focus-within .ddm>*{opacity:1;transform:none}
+.dd:hover .ddm>*:nth-child(1){transition-delay:.04s,.04s,0s,0s}.dd:hover .ddm>*:nth-child(2){transition-delay:.08s,.08s,0s,0s}
+.dd:hover .ddm>*:nth-child(3){transition-delay:.12s,.12s,0s,0s}.dd:hover .ddm>*:nth-child(4){transition-delay:.16s,.16s,0s,0s}
+.dd:hover .ddm>*:nth-child(5){transition-delay:.2s,.2s,0s,0s}.dd:hover .ddm>*:nth-child(6){transition-delay:.24s,.24s,0s,0s}
+.dd:hover .ddm>*:nth-child(7){transition-delay:.28s,.28s,0s,0s}.dd:hover .ddm>*:nth-child(8){transition-delay:.32s,.32s,0s,0s}
+.dd:hover .ddm>*:nth-child(9){transition-delay:.36s,.36s,0s,0s}
+.ddm button small,.ddm a small{display:block}
+.ddm button:hover,.ddm a:not(.all):hover{padding-left:20px}
+.ddm a.all{transition:letter-spacing .3s,color .2s}.ddm a.all:hover{letter-spacing:.2em}
+@media(prefers-reduced-motion:reduce){.ddm,.ddm>*{transition:opacity .01s!important;transform:none!important}}

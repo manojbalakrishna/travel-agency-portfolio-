@@ -31,11 +31,12 @@
    26  SCROLL EFFECTS (header, progress bar, parallax)
    ===================================================================== */
 
+
 /* ---- 01 HELPERS ($, $$, toast, go) ---- */
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('o');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('o'),2600)};
 const go=el=>{const y=Math.max(0,el.getBoundingClientRect().top+scrollY-84);scrollTo({top:y,behavior:'smooth'});setTimeout(()=>{if(Math.abs(scrollY-y)>60)scrollTo(0,y)},800)};
-let WA='916382569647';
+let WA=SITE.whatsapp;
 
 /* ---- 02 HERO HEADLINE (animated words) ---- */
 $('#h1').innerHTML=$('#h1').textContent.split(' ').map((w,i)=>`<span class="w"><span style="animation-delay:${.15+i*.09}s">${w=='Crafted'?'<em>'+w+'</em>':w}</span></span>`).join(' ');
@@ -144,7 +145,7 @@ hshow(0);hrun();
 $$('.step').forEach(s=>{s.onmouseenter=s.onclick=()=>$$('.step').forEach(x=>x.classList.toggle('on',x==s))});
 
 /* ---- 10 DARK / LIGHT TOGGLE ---- */
-$('#theme').onclick=$('#theme2').onclick=()=>{const r=document.documentElement,d=r.dataset.theme?r.dataset.theme=='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=d?'light':'dark'};
+$('#theme').onclick=$('#theme2').onclick=()=>hpSetTheme(document.documentElement.dataset.theme=='dark'?'light':'dark');
 
 
 /* ---- 11 SEARCH BAR (filters packages) ---- */
@@ -168,11 +169,12 @@ $('#bf').onsubmit=e=>{e.preventDefault();const msg={d:'Pick a travel date.',n:'E
 Object.keys(msg).forEach(k=>{const el=$('#bf_'+k),v=el.value.trim();const g=k=='e'?/^\S+@\S+\.\S+$/.test(v):k=='p'?v.replace(/\D/g,'').length>=10:!!v;el.classList.toggle('bad',!g);if(!g&&!bad)bad=k});
 if(bad){$('#er').textContent=msg[bad];$('#bf_'+bad).focus();return}
 const d=D[+$('#bf_k').value],n=$('#bf_x').value,ref='SW'+Math.random().toString(36).slice(2,7).toUpperCase();
-window.saveEnquiry&&saveEnquiry({svc:'Package',name:$('#bf_n').value.trim(),phone:$('#bf_p').value.trim(),pkg:d[0],pax:+n,date:$('#bf_d').value,amount:d[4]*n,notes:'Email: '+$('#bf_e').value.trim()}).catch(()=>{});
+sendEnquiry({svc:'Package',name:$('#bf_n').value.trim(),phone:$('#bf_p').value.trim(),pkg:d[0],pax:+n,date:$('#bf_d').value,amount:d[4]*n,notes:'Email: '+$('#bf_e').value.trim()}).catch(()=>{});
 MB.innerHTML=`<h3 id="mt">You're booked! 🌴</h3><p class="sub">We'll email the day-wise itinerary to ${$('#bf_e').value.replace(/</g,'')}.</p><div class="tk">Booking reference<br><b>${ref}</b><br><br>${d[0]} · ${d[3]} days · ${n} traveler${n>1?'s':''}<br>Starting ${new Date($('#bf_d').value).toDateString()}<br>Total ${fmt(d[4]*n)}</div><button class="btn" id="ok" style="width:100%;justify-content:center">Done</button>`;$('#ok').onclick=close}}
 
 /* ---- 13 HEADER SERVICES DROPDOWN ---- */
 $('#mns').onclick=()=>{const o=$('#mnsub').classList.toggle('o');$('#mns').setAttribute('aria-expanded',o)};
+$('#mnt').onclick=()=>{const o=$('#mntsub').classList.toggle('o');$('#mnt').setAttribute('aria-expanded',o)};
 $('#mn').addEventListener('click',e=>{if(e.target.closest('[data-svc]'))$('#mn').classList.remove('o')});
 $('.ddm').addEventListener('click',e=>{if(e.target.closest('[data-svc]')&&document.activeElement)document.activeElement.blur()});
 
@@ -184,8 +186,8 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');i
 $('#c_k').innerHTML='<option value="">Package: not sure yet</option><option>Visa assistance</option><option>Ticket booking</option>'+D.map(d=>`<option>${d[0]} · ${d[3]} days</option>`).join('');
 $('#cf').onsubmit=e=>{e.preventDefault();const n=$('#c_n'),p=$('#c_p');const gn=!!n.value.trim(),gp=p.value.replace(/\D/g,'').length>=10;n.classList.toggle('bad',!gn);p.classList.toggle('bad',!gp);
 if(!gn||!gp){$('#c_e').textContent=!gn?'Enter your name.':'Enter a phone number with at least 10 digits.';return}
-const t=`Hi Skywings, I'm ${n.value.trim()} (${p.value.trim()}). Package: ${$('#c_k').value||'not sure yet'}. ${$('#c_m').value.trim()}`;
-window.saveEnquiry&&saveEnquiry({svc:'Contact',name:n.value.trim(),phone:p.value.trim(),pkg:($('#c_k').value||'').split(' · ')[0],pax:1,date:'',amount:0,notes:$('#c_m').value.trim()}).catch(()=>{});
+const t=`Hi Holy Paradise, I'm ${n.value.trim()} (${p.value.trim()}). Package: ${$('#c_k').value||'not sure yet'}. ${$('#c_m').value.trim()}`;
+sendEnquiry({svc:'Contact',name:n.value.trim(),phone:p.value.trim(),pkg:($('#c_k').value||'').split(' · ')[0],pax:1,date:'',amount:0,notes:$('#c_m').value.trim()}).catch(()=>{});
 $('#cf').innerHTML=`<h3>Thanks, ${n.value.trim().replace(/</g,'')}!</h3><p class="sub">We'll call you on ${p.value.replace(/</g,'')}. For a faster reply, send the same details on WhatsApp.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(t)}" style="justify-content:center;padding:14px">Continue on WhatsApp</a>`};
 
 /* ---- 16 LIVE DATA FROM FIREBASE (called by the module script in index.html) ---- */
@@ -212,8 +214,8 @@ function openService(k){const v=k=='visa',t=new Date().toISOString().slice(0,10)
   if(bad.length){const b=bad[0];$('#er2').textContent=b==n?'Enter your name.':b==p?'Enter a phone number with at least 10 digits.':'Fill in from, to and travel date.';b.focus();return}
   const x=+$('#v_x').value,pkg=v?`Visa: ${$('#v_c').value} (${$('#v_t').value})`:`${$('#t_m').value}: ${$('#t_f').value.trim()} to ${$('#t_t').value.trim()}`;
   const notes=((v?'':`Depart ${$('#t_d').value}${$('#t_r').value?', return '+$('#t_r').value:''}. `)+$('#v_m').value.trim()).slice(0,900);
-  window.saveEnquiry&&saveEnquiry({svc:v?'Visa':'Ticket',name:n.value.trim(),phone:p.value.trim(),pkg,pax:x,date:v?'':$('#t_d').value,amount:0,notes}).catch(()=>{});
-  const ref='SW'+Math.random().toString(36).slice(2,7).toUpperCase(),tx=`Hi Skywings, I'm ${n.value.trim()} (${p.value.trim()}). ${pkg}, ${x} ${v?'traveler':'passenger'}${x>1?'s':''}. ${notes} Ref ${ref}`;
+  sendEnquiry({svc:v?'Visa':'Ticket',name:n.value.trim(),phone:p.value.trim(),pkg,pax:x,date:v?'':$('#t_d').value,amount:0,notes}).catch(()=>{});
+  const ref='SW'+Math.random().toString(36).slice(2,7).toUpperCase(),tx=`Hi Holy Paradise, I'm ${n.value.trim()} (${p.value.trim()}). ${pkg}, ${x} ${v?'traveler':'passenger'}${x>1?'s':''}. ${notes} Ref ${ref}`;
   MB.innerHTML=`<h3 id="mt">Request received ✓</h3><p class="sub">We'll call you on ${p.value.replace(/</g,'')} with the details.</p><div class="tk">Reference<br><b>${ref}</b><br><br>${pkg.replace(/</g,'')}<br>${x} ${v?'traveler':'passenger'}${x>1?'s':''}</div><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent(tx)}" style="justify-content:center;width:100%;padding:14px">Send on WhatsApp for a faster reply</a><button class="chip" id="ok" style="margin-top:10px">Done</button>`;$('#ok').onclick=close}}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-svc]');if(!b)return;const k=b.dataset.svc;
  if(k=='visa'||k=='ticket')openService(k);
@@ -289,3 +291,8 @@ let tk=false;function upd(){const y=scrollY;bar.style.width=(y/(document.documen
 if(y<900){plane.style.transform=`translate(${y*.18}px,${-y*.22}px) rotate(${-y*.012}deg) scale(${1+y*.0004})`}
 const r=pimg.getBoundingClientRect();pimg.style.transform=`translateY(${(r.top-innerHeight/2)*-.05}px)`;tk=false}
 addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd)}},{passive:true});upd();
+
+/* ---- SOCIAL LINKS + WHATSAPP BUTTON (uses SITE settings at the top) ---- */
+$$('.sl-ig').forEach(e=>{if(SITE.instagram)e.href=SITE.instagram;else{e.href='#';e.classList.add('soon');e.title='Link coming soon';e.addEventListener('click',ev=>ev.preventDefault())}});
+$$('.sl-fb').forEach(e=>{if(SITE.facebook)e.href=SITE.facebook;else{e.href='#';e.classList.add('soon');e.title='Link coming soon';e.addEventListener('click',ev=>ev.preventDefault())}});
+$$('a[href^="https://wa.me/"]').forEach(e=>{if(!/wa\.me\/\d/.test(e.href))e.href='https://wa.me/'+WA});

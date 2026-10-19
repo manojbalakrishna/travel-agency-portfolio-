@@ -1,4 +1,4 @@
-# Skywings: website + owner admin
+# Holy Paradise: website + owner admin
 
 START HERE (no experience needed)
 
@@ -87,3 +87,21 @@ Open admin.html, sign in, go to Packages and tap "Load starter packages". After 
 - app.js     : all behaviour + the PACKAGE DATA (search  PACKAGE DATA - edit packages here). Contents list at the top.
 - firebase-config.js : your Firebase keys. admin.html : owner dashboard.
 Upload all of them (index.html, style.css, app.js, firebase-config.js, admin.html, images/) to public_html.
+
+## Business settings (v43+)
+Open site.js and edit the block at the top called "YOUR BUSINESS SETTINGS": WhatsApp number, email key (web3forms.com), Instagram and Facebook links, Google Analytics ID. Empty values simply switch that feature off.
+
+## Extra pages (v44)
+holy-land, israel, jerusalem, palestine, egypt, europe, india, honeymoon, school-tours, air-tickets, visa, passport (.html).
+- Text, itineraries and FAQs live inside each page file. Search for the section label, e.g. "Sample itinerary".
+- Prices on the pages come from the demo packages. Replace them with the client's real prices.
+- All enquiry forms use site.js (email + Firebase). WhatsApp number and links: site.js, top block.
+## Google (SEO) checklist
+1. Replace YOURDOMAIN.com in sitemap.xml and robots.txt with the real domain (Hostinger domain).
+2. Upload sitemap.xml and robots.txt to public_html (already in the zip).
+3. In Google Search Console add the site and submit https://yourdomain.com/sitemap.xml
+4. Create a free Google Business Profile with the same name, phone and address.
+5. Put the Google Analytics ID in site.js (analyticsId).
+
+## Holy Land page picture (v51)
+The "Life of Jesus" illustration is images/holy-land/life-of-jesus.jpg (1600 x 900). To change it, upload a new JPG with the same name. The text under it is in holy-land.html (search "Footsteps of Jesus").

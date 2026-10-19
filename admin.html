@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){var d=document.documentElement,t=null,m;try{m=/[?&]theme=(dark|light)/.exec(location.search);if(m)t=m[1]}catch(e){}if(!t){try{t=localStorage.getItem('hp-theme')}catch(e){}}if(!t){try{m=/hp-theme=(dark|light)/.exec(window.name);if(m)t=m[1]}catch(e){}}d.dataset.theme=t==='dark'?'dark':'light'})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Holy Paradise Admin</title><meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--ink:#0d1220;--mute:#6b7488;--blue:#8f6b2f;--line:#e5e9f1;--ok:#17a673;--warn:#e69500;--bad:#e5384f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#0b1019;--card:#141b29;--ink:#eef2fa;--mute:#93a0b8;--line:#233047}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 "DM Sans",system-ui,sans-serif}
+button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}a{color:var(--blue);text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1400px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:14px;justify-content:space-between}
+.logo{font-weight:700;font-size:18px}.logo small{color:var(--mute);font-weight:500;font-size:12px;margin-left:6px}
+.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}.tabs button{padding:8px 14px;border-radius:999px;font-weight:500;color:var(--mute);white-space:nowrap}.tabs button.on{background:var(--ink);color:var(--bg)}
+main{max-width:1400px;margin:auto;padding:18px 16px 60px}
+h2{font-size:22px;letter-spacing:-.02em;margin-bottom:14px}
+.btn{background:var(--blue);color:#fff;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px}.btn.g{background:var(--card);color:var(--ink);border:1px solid var(--line)}.btn.d{color:var(--bad)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}
+.c{background:var(--card);border-radius:10px;padding:18px;border:1px solid var(--line)}.c small{color:var(--mute);display:block}.c b{font-size:28px;letter-spacing:-.02em}
+.two{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}@media(max-width:760px){.two{grid-template-columns:1fr}}
+.c h3{font-size:15px;margin-bottom:12px}
+.fr{display:grid;grid-template-columns:90px 1fr 28px;gap:10px;align-items:center;font-size:13px;margin:7px 0}.fr i{height:8px;border-radius:4px;background:var(--blue);display:block;min-width:2px}.fr span{text-align:right;color:var(--mute)}
+.li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14px}.li:first-of-type{border-top:0}.li small{color:var(--mute)}
+.tool{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+input,select,textarea{width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.tool input{flex:1 1 200px;width:auto}.tool select{width:auto}
+.row{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:1.4fr 1.2fr auto;gap:10px 16px;align-items:center}
+@media(max-width:700px){.row{grid-template-columns:1fr}}
+.row b{display:block}.row small{color:var(--mute)}.acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.acts select{width:auto}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;background:var(--bg)}
+.s-New{color:var(--blue)}.s-Paid,.s-Completed{color:var(--ok)}.s-Confirmed{color:var(--ok)}.s-Quoted{color:var(--warn)}.s-Cancelled{color:var(--bad)}
+.pk{display:grid;grid-template-columns:2fr 1fr 1.2fr 1.1fr 80px auto;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+@media(max-width:700px){.pk{grid-template-columns:1fr 1fr}}
+.pk label{font-size:12px;color:var(--mute)}
+.m{position:fixed;inset:0;z-index:50;background:rgba(8,14,26,.55);display:none;align-items:center;justify-content:center;padding:16px}.m.o{display:flex}
+.box{background:var(--card);border-radius:12px;padding:22px;width:min(500px,100%);max-height:92vh;overflow:auto}.box h3{font-size:20px;margin-bottom:12px}
+.f{display:grid;gap:10px}.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.f label{font-size:12px;color:var(--mute);display:block;margin-bottom:3px}
+.err{color:var(--bad);font-size:13px;min-height:18px}.empty{text-align:center;color:var(--mute);padding:36px 10px}
+.lock{min-height:70vh;display:grid;place-items:center;text-align:center;padding:20px}.lock div{max-width:380px}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,100px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:999px;z-index:90;transition:.35s;font-size:14px}#toast.o{transform:translate(-50%,0)}
+textarea.code{font:12px/1.4 ui-monospace,monospace;min-height:150px}
+</style>
+</head>
+<body>
+<div id="app"><div class="lock"><p style="color:var(--mute)">Checking access…</p></div></div>
+<div class="m" id="modal" role="dialog" aria-modal="true"><div class="box" id="mb"></div></div>
+<div id="toast"></div>
+<script>
+if(location.protocol==='file:'){document.getElementById('app').innerHTML='<div class="lock"><div style="max-width:460px;text-align:left"><h2>Open this page from a web address</h2><p style="color:var(--mute);margin-bottom:10px">The admin page cannot run when it is opened as a file from your computer. Use one of these:</p><p style="color:var(--mute)">1. Upload the site to your hosting and open <b>yourdomain.com/admin.html</b><br>2. Or, in VS Code, install the Live Server extension, right-click admin.html and choose Open with Live Server.</p></div></div>'}
+</script>
+<script type="module">
+import {firebaseConfig,OWNER_EMAIL} from './firebase-config.js';
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import {getAuth,onAuthStateChanged,signInWithEmailAndPassword,signOut} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import * as fs from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=t=>String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>'₹'+(Number(n)||0).toLocaleString('en-IN');
+const toast=t=>{const e=$('#toast');e.textContent=t;e.classList.add('o');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('o'),2400)};
+const STAT=['New','Contacted','Quoted','Confirmed','Paid','Completed','Cancelled'],SRC=['WhatsApp','Phone call','Website form','Walk-in','Referral'];
+let db,E=[],PK=[],ST={},tab='dash',filt='all',sv='all',q='';
+const lock=m=>{$('#app').innerHTML=`<div class="lock"><div><h2>Owner only</h2><p style="color:var(--mute)">${m||'This dashboard is private. Open it from the owner account that published it.'}</p></div></div>`};
+const configured=firebaseConfig.projectId&&!firebaseConfig.projectId.startsWith('YOUR');
+let started=false;
+if(!configured)lock('Add your Firebase details to firebase-config.js first. See README.md.');
+else{const app=initializeApp(firebaseConfig),auth=getAuth(app),F=fs.getFirestore(app);
+ const wrap=()=>({collection:n=>{const c=fs.collection(F,n);const q=ex=>({orderBy:(f,d)=>q([...ex,fs.orderBy(f,d||'asc')]),limit:k=>q([...ex,fs.limit(k)]),onSnapshot:(cb,er)=>fs.onSnapshot(fs.query(c,...ex),s=>cb({docs:s.docs.map(d=>({id:d.id,data:()=>d.data()}))}),er)});return{...q([]),add:d=>fs.addDoc(c,d)}},
+  doc:p=>{const r=fs.doc(F,...p.split('/'));return{onSnapshot:(cb,er)=>fs.onSnapshot(r,s=>cb({exists:s.exists(),data:()=>s.data()}),er),update:d=>fs.updateDoc(r,d),set:d=>fs.setDoc(r,d),delete:()=>fs.deleteDoc(r)}}});
+ const login=m=>{$('#app').innerHTML=`<div class="lock"><form class="f" id="lf" style="width:min(340px,100%);text-align:left"><h2>Owner sign in</h2><input id="l_e" type="email" placeholder="Email" autocomplete="username"><input id="l_p" type="password" placeholder="Password" autocomplete="current-password"><div class="err" id="l_x">${m||''}</div><button class="btn" type="submit">Sign in</button></form></div>`;
+  $('#lf').onsubmit=async e=>{e.preventDefault();try{await signInWithEmailAndPassword(auth,$('#l_e').value.trim(),$('#l_p').value)}catch(er){$('#l_x').textContent='Wrong email or password.'}}};
+ onAuthStateChanged(auth,u=>{if(!u){started=false;login();return}
+  if((u.email||'').toLowerCase()!==OWNER_EMAIL.toLowerCase()){signOut(auth);login('This account is not the owner.');return}
+  if(!started){started=true;db=wrap();boot();$('#so').onclick=()=>signOut(auth).then(()=>location.reload())}})}
+function boot(){
+ $('#app').innerHTML=`<div class="top"><div class="bar"><div class="logo">Holy Paradise<small>Admin</small></div><div class="tabs" id="tabs">${[['dash','Dashboard'],['enq','Enquiries'],['pk','Packages'],['set','Site settings']].map(([k,l])=>`<button data-t="${k}" class="${k==tab?'on':''}">${l}</button>`).join('')}</div><button class="btn g" id="so">Sign out</button></div></div><main id="main"></main>`;
+ $('#tabs').onclick=e=>{const t=e.target.dataset.t;if(!t)return;tab=t;$$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t==t));show()};
+ const er=e=>toast('Database error: '+(e.message||e.code));
+ db.collection('enquiries').orderBy('created','desc').limit(500).onSnapshot(s=>{E=s.docs.map(d=>({id:d.id,...d.data()}));refresh()},er);
+ db.collection('packages').orderBy('order').limit(100).onSnapshot(s=>{PK=s.docs.map(d=>({id:d.id,...d.data()}));refresh()},er);
+ db.doc('settings/site').onSnapshot(s=>{ST=s.exists?s.data():{};if(tab=='set'&&!$('#main').contains(document.activeElement))fillSet()},er);
+ show()}
+function show(){const m=$('#main');
+ if(tab=='dash'){m.innerHTML='<div id="dash"></div>';dash()}
+ else if(tab=='enq'){m.innerHTML=`<h2>Enquiries &amp; bookings</h2><div class="tool"><input id="q" placeholder="Search name, phone, package" value="${esc(q)}" aria-label="Search"><select id="fs" aria-label="Status"><option value="all">All statuses</option>${STAT.map(s=>`<option ${s==filt?'selected':''}>${s}</option>`).join('')}</select><select id="fv" aria-label="Service">${['all','Package','Visa','Ticket','Contact'].map(s=>`<option value="${s}" ${s==sv?'selected':''}>${s=='all'?'All services':s}</option>`).join('')}</select><button class="btn" id="add">+ Add enquiry</button></div><div id="elist"></div>`;
+  $('#q').oninput=e=>{q=e.target.value;elist()};$('#fs').onchange=e=>{filt=e.target.value;elist()};$('#fv').onchange=e=>{sv=e.target.value;elist()};$('#add').onclick=()=>enqForm();elist()}
+ else if(tab=='pk'){m.innerHTML=`<h2>Tour packages</h2><div class="tool"><button class="btn" id="addp">+ Add package</button></div><div id="plist"></div>`;$('#addp').onclick=async()=>{await db.collection('packages').add({name:'New package',place:'',type:'beach',cat:'all',days:5,price:50000,active:true,order:Date.now()});toast('Package added')};plist()}
+ else{m.innerHTML=`<h2>Site settings</h2><div class="c"><div class="f" style="max-width:520px"><div><label>Business name</label><input id="s_biz"></div><div class="f2"><div><label>Phone number</label><input id="s_phone" type="tel"></div><div><label>WhatsApp number (with country code)</label><input id="s_wa" type="tel"></div></div><div class="f2"><div><label>Offer discount %</label><input id="s_off" type="number" min="0" max="90"></div><div><label>Offer ends on</label><input id="s_end" type="date"></div></div><button class="btn" id="ssave" style="justify-self:start">Save settings</button></div></div>
+  <div class="c" style="margin-top:12px"><h3>Public website</h3><p style="color:var(--mute)">Active packages, prices, the offer and your phone numbers saved here load on the website automatically.</p></div>`;
+  fillSet();$('#ssave').onclick=saveSet}
+}
+function refresh(){if(tab=='dash')dash();else if(tab=='enq'&&$('#elist'))elist();else if(tab=='pk'&&$('#plist')&&!$('#plist').contains(document.activeElement))plist();}
+// dashboard
+function dash(){const has=s=>E.filter(e=>e.status==s),sum=a=>a.reduce((t,e)=>t+(+e.amount||0),0);
+ const rev=sum(E.filter(e=>['Paid','Completed'].includes(e.status))),pipe=sum(E.filter(e=>['Quoted','Confirmed'].includes(e.status)));
+ const mx=Math.max(1,...STAT.map(s=>has(s).length));
+ const top={};E.forEach(e=>{if(e.pkg)top[e.pkg]=(top[e.pkg]||0)+1});const tl=Object.entries(top).sort((a,b)=>b[1]-a[1]).slice(0,5);
+ $('#dash').innerHTML=`<h2>Dashboard</h2><div class="cards"><div class="c"><small>Total enquiries</small><b>${E.length}</b></div><div class="c"><small>New, need a reply</small><b style="color:var(--blue)">${has('New').length}</b></div><div class="c"><small>Pipeline value</small><b>${fmt(pipe)}</b></div><div class="c"><small>Revenue received</small><b style="color:var(--ok)">${fmt(rev)}</b></div></div>
+ <div class="two"><div class="c"><h3>Enquiry pipeline</h3>${STAT.map(s=>`<div class="fr"><span style="text-align:left;color:var(--ink)">${s}</span><i style="width:${has(s).length/mx*100}%"></i><span>${has(s).length}</span></div>`).join('')}</div>
+ <div class="c"><h3>Most requested packages</h3>${tl.length?tl.map(([n,c])=>`<div class="li"><span>${esc(n)}</span><b>${c}</b></div>`).join(''):'<p style="color:var(--mute)">No data yet.</p>'}</div></div>
+ <div class="c" style="margin-top:12px"><h3>Latest enquiries</h3>${E.length?E.slice(0,6).map(e=>`<div class="li"><span>${esc(e.name)}<br><small>${esc(e.pkg||'No package')} · ${esc(e.src||'')}</small></span><span class="tag s-${e.status}">${e.status}</span></div>`).join(''):'<div class="empty">No enquiries yet. Add the first one from the Enquiries tab.</div>'}</div>`}
+// enquiries
+function elist(){const k=q.toLowerCase();const l=E.filter(e=>(filt=='all'||e.status==filt)&&(sv=='all'||(e.svc||'Package')==sv)&&(!k||[e.name,e.phone,e.pkg].join(' ').toLowerCase().includes(k)));
+ $('#elist').innerHTML=l.length?l.map(e=>{const ph=String(e.phone||'').replace(/\D/g,'');return `<div class="row"><div><b>${esc(e.name)}</b><small>${esc(e.phone)} · ${esc(e.src||'')}</small>${e.notes?`<small style="display:block">${esc(e.notes)}</small>`:''}</div><div><b>${e.svc&&e.svc!='Package'?`<span class="tag">${esc(e.svc)}</span> `:''}${esc(e.pkg||'Custom trip')}</b><small>${e.pax||1} traveler${e.pax>1?'s':''}${e.date?' · '+esc(e.date):''} · ${fmt(e.amount)}</small></div><div class="acts"><select data-st="${e.id}" aria-label="Status">${STAT.map(s=>`<option ${s==e.status?'selected':''}>${s}</option>`).join('')}</select><a href="tel:${esc(e.phone)}">Call</a><a href="https://wa.me/${ph.length==10?'91'+ph:ph}" target="_blank" rel="noopener">WhatsApp</a><button data-ed="${e.id}">Edit</button><button class="d" style="color:var(--bad)" data-del="${e.id}">Delete</button></div></div>`}).join(''):`<div class="empty">${E.length?'No enquiries match.':'No enquiries yet. Tap + Add enquiry to log one from WhatsApp, a call or a visit.'}</div>`}
+document.addEventListener('change',async e=>{const id=e.target.dataset.st;if(id){await db.doc('enquiries/'+id).update({status:e.target.value});toast('Status updated')}
+ const p=e.target.dataset.pf;if(p){const[i,f]=p.split('|');let v=e.target.type=='checkbox'?e.target.checked:e.target.value;if(f=='price'||f=='days')v=Math.max(0,+v||0);await db.doc('packages/'+i).update({[f]:v});toast('Saved')}});
+document.addEventListener('click',async e=>{const t=e.target;
+ if(t.id=='seed')seed();
+ if(t.dataset.ed)enqForm(E.find(x=>x.id==t.dataset.ed));
+ if(t.dataset.del&&confirm('Delete this enquiry?')){await db.doc('enquiries/'+t.dataset.del).delete();toast('Deleted')}
+ if(t.dataset.dp&&confirm('Delete this package?')){await db.doc('packages/'+t.dataset.dp).delete();toast('Deleted')}});
+function enqForm(x){x=x||{};const o=(a,v)=>a.map(s=>`<option ${s==v?'selected':''}>${esc(s)}</option>`).join('');
+ $('#mb').innerHTML=`<h3>${x.id?'Edit':'New'} enquiry</h3><form class="f" id="ef" novalidate><div class="f2"><div><label>Name</label><input id="e_n" value="${esc(x.name)}"></div><div><label>Phone</label><input id="e_p" type="tel" value="${esc(x.phone)}"></div></div><div class="f2"><div><label>Service</label><select id="e_v">${o(['Package','Visa','Ticket','Contact'],x.svc||'Package')}</select></div><div><label>Package or details</label><input id="e_k" list="pkl" value="${esc(x.pkg)}"><datalist id="pkl">${PK.map(p=>`<option>${esc(p.name)}</option>`).join('')}</datalist></div></div><div class="f2"><div><label>Travelers</label><input id="e_x" type="number" min="1" value="${x.pax||2}"></div><div><label>Travel date</label><input id="e_d" type="date" value="${esc(x.date)}"></div></div><div class="f2"><div><label>Source</label><select id="e_s">${o(SRC,x.src)}</select></div><div><label>Status</label><select id="e_t">${o(STAT,x.status||'New')}</select></div></div><div><label>Total amount (₹)</label><input id="e_a" type="number" min="0" value="${x.amount||''}" placeholder="Auto from package price"></div><div><label>Notes</label><textarea id="e_m">${esc(x.notes)}</textarea></div><div class="err" id="e_e"></div><div class="acts"><button class="btn" type="submit">Save</button><button class="btn g" type="button" id="e_c">Cancel</button></div></form>`;
+ $('#modal').classList.add('o');$('#e_c').onclick=()=>$('#modal').classList.remove('o');setTimeout(()=>$('#e_n').focus(),30);
+ $('#ef').onsubmit=async ev=>{ev.preventDefault();const n=$('#e_n').value.trim(),p=$('#e_p').value.trim();
+  if(!n||p.replace(/\D/g,'').length<10){$('#e_e').textContent=!n?'Enter a name.':'Enter a phone number with at least 10 digits.';return}
+  const pk=PK.find(k=>k.name==$('#e_k').value),pax=Math.max(1,+$('#e_x').value||1);let amt=+$('#e_a').value;if(!amt&&pk)amt=pk.price*pax;
+  const d={svc:$('#e_v').value,name:n,phone:p,pkg:$('#e_k').value.trim(),pax,date:$('#e_d').value,src:$('#e_s').value,status:$('#e_t').value,amount:amt||0,notes:$('#e_m').value.trim(),created:x.created||Date.now()};
+  try{x.id?await db.doc('enquiries/'+x.id).set(d):await db.collection('enquiries').add(d);$('#modal').classList.remove('o');toast('Saved')}catch(er){$('#e_e').textContent='Could not save: '+(er.message||er.code)}}}
+$('#modal').onclick=e=>{if(e.target.id=='modal')e.target.classList.remove('o')};addEventListener('keydown',e=>{if(e.key=='Escape')$('#modal').classList.remove('o')});
+// packages
+function plist(){$('#plist').innerHTML=PK.length?PK.map(p=>`<div class="pk"><div><label>Name</label><input data-pf="${p.id}|name" value="${esc(p.name)}"></div><div><label>Days</label><input type="number" min="1" data-pf="${p.id}|days" value="${p.days}"></div><div><label>Price per person (₹)</label><input type="number" min="0" data-pf="${p.id}|price" value="${p.price}"></div><div><label>Category</label><select data-pf="${p.id}|cat">${[['all','Standard'],['couple','Couple'],['student','Student'],['christian','Christian']].map(([v,l])=>`<option value="${v}" ${(p.cat||'all')==v?'selected':''}>${l}</option>`).join('')}</select></div><label style="display:flex;gap:6px;align-items:center;margin-top:16px"><input type="checkbox" style="width:auto" data-pf="${p.id}|active" ${p.active!==false?'checked':''}>Active</label><button data-dp="${p.id}" style="color:var(--bad);margin-top:16px">Delete</button><small style="grid-column:1/-1;color:var(--mute)">Photos folder on your hosting: images/packages/${p.name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/ (files 1.jpg to 6.jpg)</small></div>`).join(''):'<div class="empty">No packages yet.<br><button class="btn" id="seed" style="margin-top:12px">Load starter packages</button></div>'}
+async function seed(){const L=[['Bali','Indonesia','beach',5,48000],['Dubai','UAE','city',4,42000],['Kyoto','Japan','city',6,78000],['Maldives','Indian Ocean','beach',5,85000,'couple'],['Tokyo','Japan','city',7,92000],['Santorini','Greece','beach',7,99000,'couple'],['Zermatt','Switzerland','mountain',6,105000],['Banff','Canada','mountain',7,112000],['Udaipur','India','city',4,32000,'couple'],['Goa','India','beach',4,14500,'student'],['Manali','India','mountain',5,18500,'student'],['Kashmir','Jammu and Kashmir','mountain',6,52000],['Singapore','Singapore','city',6,58000,'student'],['Holy Land','Israel & Jordan','city',8,145000,'christian'],['Italy','Rome, Florence, Milan, Venice','city',9,165000,'christian'],['Gothic Europe','Paris and Cologne','city',8,155000,'christian'],['Velankanni','Tamil Nadu','city',3,9500,'christian']];
+ for(const [i,p] of L.entries())await db.doc('packages/'+p[0].toLowerCase().replace(/[^a-z0-9]+/g,'-')).set({name:p[0],place:p[1],type:p[2],days:p[3],price:p[4],cat:p[5]||'all',active:true,order:i+1});toast('Starter packages loaded')}
+// settings
+function fillSet(){if(!$('#s_biz'))return;$('#s_biz').value=ST.biz||'Holy Paradise Tours and Travels';$('#s_phone').value=ST.phone||'+91 6382569647';$('#s_wa').value=ST.wa||'916382569647';$('#s_off').value=ST.offer??20;$('#s_end').value=ST.offerEnd||''}
+async function saveSet(){await db.doc('settings/site').set({biz:$('#s_biz').value.trim(),phone:$('#s_phone').value.trim(),wa:$('#s_wa').value.replace(/\D/g,''),offer:+$('#s_off').value||0,offerEnd:$('#s_end').value});toast('Settings saved')}
+function exportData(){return JSON.stringify({settings:ST,packages:PK.filter(p=>p.active!==false).map(({name,place,type,days,price})=>({name,place,type,days,price}))},null,1)}
+async function copyData(){const t=$('#exp');t.select();try{await navigator.clipboard.writeText(t.value);toast('Copied')}catch(e){document.execCommand&&document.execCommand('copy');toast('Copied')}}
+</script>
+</body>
+</html>
